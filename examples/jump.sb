@@ -1,0 +1,17 @@
+eq_1:         // Declare labels with a colon at the end
+  MSG "Equals 1"
+  EXIT
+
+eq_2:
+  MSG "Equals 2"
+  EXIT
+
+main:
+  SHOW        // Used due to a temporary bug with main
+  PUSH 1
+  PUSH 1
+  ADD
+  IFEQ 2
+  JUMP :eq_2  // Invoke label calls (jumps) with a colon at the start
+  
+HALT

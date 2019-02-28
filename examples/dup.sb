@@ -1,0 +1,8 @@
+PUSH 1  // |
+PUSH 2  // |
+ADD     // -> Pushes 3 to the stack
+DUP     // Duplicates top-most stack value, pushes it to the top of the stack
+MUL 
+MSG $   // Outputs: 9 to STDOUT
+
+HALT

@@ -1,0 +1,35 @@
+// Simple for-loop example
+// Output:
+// 9
+// 8
+// 7
+// 6
+// 5
+// 4
+// 3
+// 2
+// 1
+// 0
+
+loop:
+  PUSH 1      // Amount to decrement by
+  LOAD        // Load and remove the saved value (20) from the heap
+  SUB         // Subtract 1 from the loaded value, push it to the stack
+  MSG $       // Write top-most value of the stack (using alias '$') to STDOUT
+  IFEQ 0      // |
+  JUMP :exit  // -> If the value is 0: jump to exit condition
+  SAVE        // |  If the value isn't 0: save it to the heap,
+  POP         // |  remove it from the stack,
+  JUMP :loop  // -> restart the loop
+
+main:
+  PUSH 10     // Loop limit
+  SAVE        // Save the value to the heap
+  POP         // Remove it from the stack so the stack is easier to work with
+  JUMP :loop  // Start our loop
+
+exit:
+  MSG "Program finished"
+  EXIT
+
+HALT

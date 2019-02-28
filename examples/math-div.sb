@@ -1,0 +1,5 @@
+PUSH 2
+PUSH 5
+DIV
+MSG $   // Outputs: 2 to STDOUT (for now)
+HALT
