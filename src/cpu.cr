@@ -18,8 +18,8 @@ module Sb2
       end
 
       @program = inst
-      checkForMain(@program)
       getLabels(@program)
+      checkForMain(@labels)
     end
 
     def run()
@@ -132,8 +132,6 @@ module Sb2
             puts "Heap : %s" % hi
           end
         when Instruction::MSG
-          #checkInstructionArgument(instruction, 1)  
-
           str = @program[@ipointer]
           fin = ""
 
@@ -175,7 +173,7 @@ module Sb2
 
           comparison = @program[@ipointer]
           comparator = @stack[0]
-          
+
           if comparator.value == comparison.value
             @ipointer += 1
           else 
@@ -188,6 +186,28 @@ module Sb2
           comparator = @stack[0]
           
           if comparator.value != comparison.value
+            @ipointer += 1
+          else
+            @ipointer += 2
+          end
+        when Instruction::IFLE
+          checkInstructionArgument(instruction, 1)
+
+          comparison = @program[@ipointer]
+          comparator = @stack[0]
+          
+          if comparator.value <= comparison.value
+            @ipointer += 1
+          else
+            @ipointer += 2
+          end
+        when Instruction::IFME
+          checkInstructionArgument(instruction, 1)
+
+          comparison = @program[@ipointer]
+          comparator = @stack[0]
+          
+          if comparator.value >= comparison.value
             @ipointer += 1
           else
             @ipointer += 2
@@ -219,17 +239,18 @@ module Sb2
       end
     end
 
-    def checkForMain(p)
+    def checkForMain(l)
       startaddr = 0
       
-      p.each do |line|
+      l.each do |line|
         if line.name == "main" && line.stackaddr != nil
           startaddr = line.stackaddr
         end
       end
-
-      @ipointer = startaddr || 0
-      @mainpointer = startaddr || 0
+      
+      
+      @mainpointer = startaddr || -2
+      @ipointer = @mainpointer
     end
 
     def compare(n1, o, n2)

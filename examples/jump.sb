@@ -1,17 +1,18 @@
-eq_1:         // Declare labels with a colon at the end
-  MSG "Equals 1"
+le_1:         // Declare labels with a colon at the end
+  MSG "Less than equal to 1"
   EXIT
 
-eq_2:
-  MSG "Equals 2"
+me_2:
+  MSG "More than equal to 2"
   EXIT
 
 main:
-  SHOW        // Used due to a temporary bug with main
   PUSH 1
-  PUSH 1
+  PUSH 3
   ADD
-  IFEQ 2
-  JUMP :eq_2  // Invoke label calls (jumps) with a colon at the start
-  
+  IFLE 1
+  JUMP :le_1  // Invoke label calls (jumps) with a colon at the start
+  IFME 2
+  JUMP :me_2
+
 HALT

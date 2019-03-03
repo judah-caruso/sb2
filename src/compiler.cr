@@ -70,7 +70,7 @@ module Sb2
             label = SType.new(Instruction::LABEL)
             label.type = "label"
             label.name = tree[cur].rchop
-            label.stackaddr = cur
+            label.stackaddr = cur / 2
 
             @program.push(label)
             cur += 1

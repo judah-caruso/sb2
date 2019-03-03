@@ -6,6 +6,8 @@ module Sb2
     JUMP  # Jump to label
     IFEQ  # Move to next instruction if equal
     IFNE  # Move to next insturction if not equal
+    IFLE  # Move to next instruction if less than or equal
+    IFME  # Move to next instruction if more than or equal
     ROLH  # Rolls the heap
     ROLS  # Rolls the stack
     REDO  # Re-does the current block
