@@ -34,27 +34,27 @@ TODO. For now look in the examples/ folder.
 Stack/heap quantity required = **2S:?H** -> At least 2 required in stack, any in heap  
 Arguments for operation call = ? ? -> Minimum of 2 arguments required
 
-  * ``HALT   : `` Exits the program. Required at the end of every program.
-  * ``EXIT   : `` Syntactic sugar for HALT, used for exiting outside of the "main" label. Will have more specific uses in the future.
-  * ``PUSH ? : `` Pushes a numeric (limted to integers for now) value to the stack.
-  * ``POP    : `` **1S:?H** Removes the top-most stack value from the stack.
-  * ``MSG  ? : `` Writes a value to STDOUT
-  * ``IFEQ ? : `` **1S:?H** Executes the next instruction if true, skips if false.
-  * ``IFNE ? : `` **1S:?H** Executes the next instruction if false, skips if true.
-  * ``IFLE ? : `` **1S:?H** Executes the next instruction if argument is <= top-most stack value.
-  * ``IFME ? : `` **1S:?H** Executes the next instruction if argument is >= top-most stack value.
-  * ``JUMP ? : `` **?S:?H** Jumps to a specific label (ex. JUMP :main). (examples/jump.sb)
-  * ``ADD    : `` **2S:?H** Adds two values together. (examples/math-add.sb)
-  * ``SUB    : `` **2S:?H** Subracts one value from another. (examples/math-sub.sb)
-  * ``MUL    : `` **2S:?H** Multiples two values together. (examples/math-mul.sb)
-  * ``DIV    : `` **2S:?H** Divides one value by another. (examples/math-div.sb)
-  * ``DUP    : `` **1S:?H** Duplicates the top-most stack value. (examples/dup.sb)
-  * ``SWAP   : `` **2S:?H** Swaps the positions of the first (top-most) and second values in the stack. (examples/swap.sb)
-  * ``SAVE   : `` **1S:?H** Pushes the top-most stack value into the heap. Does *not* pop value off the stack. (examples/save-load.sb)
-  * ``LOAD   : `` **?S:1H** Pushes the top-most heap value onto the stack. Removes the value from the heap. (examples/save-load.sb)
-  * ``ROLS   : `` **2S:?H** Moves the top-most stack value to the bottom of the stack. (examples/roll.sb)
-  * ``ROLH   : `` **?S:2H** Moves the top-most heap value to the bottom of the heap. (examples/roll.sb)
-  * ``SHOW   : `` **?S:?H** Prints the current values of the stack and heap. (examples/show.sb)
+  * ``HALT  `` **?S:?H** Exits the program. Required at the end of every program.
+  * ``EXIT  `` **?S:?H** Syntactic sugar (alias) for HALT, used for exiting outside of the "main" label. Will have more specific uses in the future.
+  * ``PUSH ?`` **?S:?H** Pushes a numeric (limted to integers for now) value to the stack.
+  * ``POP   `` **1S:?H** Removes the top-most stack value from the stack.
+  * ``MSG  ?`` **?S:?H** Writes a value to STDOUT
+  * ``IFEQ ?`` **1S:?H** Executes the next instruction if true, skips if false.
+  * ``IFNE ?`` **1S:?H** Executes the next instruction if false, skips if true.
+  * ``IFLE ?`` **1S:?H** Executes the next instruction if argument is <= top-most stack value.
+  * ``IFME ?`` **1S:?H** Executes the next instruction if argument is >= top-most stack value.
+  * ``JUMP ?`` **?S:?H** Jumps to a specific label (ex. JUMP :main). (examples/jump.sb)
+  * ``ADD   `` **2S:?H** Adds two values together. (examples/math-add.sb)
+  * ``SUB   `` **2S:?H** Subracts one value from another. (examples/math-sub.sb)
+  * ``MUL   `` **2S:?H** Multiples two values together. (examples/math-mul.sb)
+  * ``DIV   `` **2S:?H** Divides one value by another. (examples/math-div.sb)
+  * ``DUP   `` **1S:?H** Duplicates the top-most stack value. (examples/dup.sb)
+  * ``SWAP  `` **2S:?H** Swaps the positions of the first (top-most) and second values in the stack. (examples/swap.sb)
+  * ``SAVE  `` **1S:?H** Pushes the top-most stack value into the heap. Does *not* pop value off the stack. (examples/save-load.sb)
+  * ``LOAD  `` **?S:1H** Pushes the top-most heap value onto the stack. Removes the value from the heap. (examples/save-load.sb)
+  * ``ROLS  `` **2S:?H** Moves the top-most stack value to the bottom of the stack. (examples/roll.sb)
+  * ``ROLH  `` **?S:2H** Moves the top-most heap value to the bottom of the heap. (examples/roll.sb)
+  * ``SHOW  `` **?S:?H** Prints the current values of the stack and heap. (examples/show.sb)
 
 # Contributing
 1. Fork this repository (https://github.com/kyoto-shift/sb2/fork)
